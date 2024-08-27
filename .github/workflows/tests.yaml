@@ -1,0 +1,17 @@
+name: Execute Unit Tests
+run-name: executes unit testing using Jest
+on: ['push']
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone repo to VM
+      uses: actions/checkout@v4
+    - name: Set up NodeJS 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - name: Install modules and run test
+      run: |
+        npm install
+        npm run test
