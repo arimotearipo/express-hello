@@ -1,0 +1,14 @@
+image: docker:latest
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Build and push Docker image
+          script:
+            - docker build -t express-hello .
+            - docker tag express-hello:latest $DOCKER_HUB_USERNAME/express-hello:latest
+            - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
+            - docker push $DOCKER_HUB_USERNAME/express-hello:latest
+          services:
+            - docker
