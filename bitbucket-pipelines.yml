@@ -1,14 +1,23 @@
-image: docker:latest
+# image: docker:latest
+
+# pipelines:
+#   branches:
+#     main:
+#       - step:
+#           name: Build and push Docker image
+#           script:
+#             - docker build -t express-hello .
+#             - docker tag express-hello:latest $DOCKER_HUB_USERNAME/express-hello:latest
+#             - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
+#             - docker push $DOCKER_HUB_USERNAME/express-hello:latest
+#           services:
+#             - docker
+
 
 pipelines:
   branches:
-    main:
+    master:
       - step:
-          name: Build and push Docker image
+          name: Our Very First Pipeline!
           script:
-            - docker build -t express-hello .
-            - docker tag express-hello:latest $DOCKER_HUB_USERNAME/express-hello:latest
-            - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
-            - docker push $DOCKER_HUB_USERNAME/express-hello:latest
-          services:
-            - docker
+            - echo "Hello World!"
