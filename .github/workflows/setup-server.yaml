@@ -7,8 +7,8 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    #   - name: Checkout code
+    #     uses: actions/checkout@v4
       - name: SSH into remote server and run echo hello world
         uses: appleboy/ssh-action@master
         with:
