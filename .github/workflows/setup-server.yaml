@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  ssh:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,7 +14,8 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          key: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            echo "Hello World"
+            touch hi_there.txt
+            echo "Hello World" > hi_there.txt
